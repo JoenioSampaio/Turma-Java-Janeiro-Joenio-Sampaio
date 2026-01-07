@@ -1,0 +1,50 @@
+Qual o método que inicia a execução no JAVA?
+public static void main(String[] args).
+
+O que é uma Classe?
+É uma estrutura fundamental que define um tipo de objeto, se vai serum método ou arquivo principal. 
+
+Como criar uma Classe?
+Para criar uma classe em Java, usando public class "NomeDaClasse" e definindo atributos (variáveis) e métodos (ações) dentro das chaves.
+
+O que é um Método?
+Bloco de código que executa uma tarefa específica, agindo como uma "função" ou "procedimento" dentro de uma classe definindo o comportamento da execução.
+
+O que uma variável?
+É um nome que vai armazenar um dado na memoria e pode ser alterado no código.
+
+O que é uma condicional (comando if)?
+É usado para tomada de decisões optando por A ou B na execução.
+
+Como usar herança no java?
+Para usar herança em Java, utilize a palavra-chave extends.
+
+O que é Herança?
+classes filhas que herdam atributos e métodos de outra classe como "classe Pai".
+
+Como comparar String?
+Para comparar strings é usado o senal igualdade (==) ou método como equals().
+
+Como receber dados do Usuario pelo console?
+Utilizando como entrada de dados: Scanner sc = new Scanner(System.in) e sc.nextInt.
+
+Por que Tivemos que migrar do java 1 para o java 17?
+Por não ter todos os recursos necessários para o desenvolvimento do código Exemplo: Scanner.
+
+O que é compilar?
+E transformá-lo em uma linguagem que o computador consiga entender e executar.
+
+O que é executar?
+Executar é rodar o código para verificar o funcionamento das etapas ou partes de códigos em execução.
+
+O que é erro de compilação?
+E quando o código não reconhece algum procedimento que faltou por exemplo caminho de pasta.
+
+O que é erro de execução?
+E o código que esta sendo executado de forma errada ou faltando algum tipo de informação ou código errado.
+
+Como usar herança no java?
+Para usar herança em Java, utilize a palavra: extends.
+
+Como concatenar Concatenação String?
+Concatenamos usando o sinal de + "texto" + Variavel.
