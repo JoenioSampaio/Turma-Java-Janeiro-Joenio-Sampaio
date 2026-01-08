@@ -45,6 +45,6 @@ public class Principal {
 			jogadorFutsalObjeto.ValorPorGols = entradaDados.nextDouble();
 			}
 		
-		System.out.println("#############Fim##################");
+		System.out.println("#############Fim##################");;
 	}
 }
