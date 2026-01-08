@@ -6,13 +6,13 @@ public class Principal {
 
 	public static void main(String[] args) {
 		
-		System.out.println("#############Iniciando##################");
+		
 		Scanner entradaDados = new Scanner(System.in);
 		JogadorBasquete jogadorBasqueteObjeto = new JogadorBasquete();
-		JogadorFutsal  jogadorFutsalObjeto = new JogadorFutsal();
+		JogadorFutsal jogadorFutsalObjeto = new JogadorFutsal();
 		
 		
-		
+		System.out.println("#############Iniciando##################");
 		System.out.println("Cadastro de Atleta: ");
 		System.out.println("Digite B para jogador de Basquete ou F para jogador de Futsal");
 		String opcao = entradaDados.next();
