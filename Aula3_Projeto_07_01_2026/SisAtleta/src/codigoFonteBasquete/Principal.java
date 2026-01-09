@@ -6,7 +6,6 @@ public class Principal {
 
 	public static void main(String[] args) {
 		
-		
 		Scanner entradaDados = new Scanner(System.in);
 		JogadorBasquete jogadorBasqueteObjeto = new JogadorBasquete();
 		JogadorFutsal jogadorFutsalObjeto = new JogadorFutsal();
@@ -18,33 +17,62 @@ public class Principal {
 		String opcao = entradaDados.next();
 		
 		if(opcao.equals("B")) {
-			System.out.println("Qual o nome do Jogador: ");
-			jogadorBasqueteObjeto.nomeAtleta = entradaDados.next();
+			System.out.println("Digite o nome do Jogador: ");
+			jogadorBasqueteObjeto.setNomeAtleta(entradaDados.next());
 			
-			System.out.println("Qual a idade do Jogador: ");
-			jogadorBasqueteObjeto.idade = entradaDados.nextInt();
+			System.out.println("Digite a idade do Jogador: ");
+			jogadorBasqueteObjeto.setIdade(entradaDados.nextInt());
 			
-			System.out.println("Qual o braço mais forte do Jogador: ");
-			jogadorBasqueteObjeto.BracoMaisForte = entradaDados.next();
+			System.out.println("Digite o braço mais forte do Jogador: ");
+			jogadorBasqueteObjeto.setBracoMaisForte(entradaDados.next());
 			
-			System.out.println("Qual o valor por pontos do Jogador: ");
-			jogadorBasqueteObjeto.ValorPorPontos = entradaDados.nextDouble();
+			System.out.println("Digite o valor por pontos do Jogador: ");
+			jogadorBasqueteObjeto.setValorPorPontos(entradaDados.nextDouble());
+			
+			System.out.println("quantos gols o jogador marcou: ");
+			jogadorBasqueteObjeto.setQtdPts(entradaDados.nextInt());
+			
+			System.out.println("O nome do jogador é: " + jogadorBasqueteObjeto.getNomeAtleta());
+			
+			System.out.println("A idade do jogador é: " + jogadorBasqueteObjeto.getIdade());
+			
+			System.out.println("A braço mais forte do jogador é: " + jogadorBasqueteObjeto.getBracoMaisForte());
+			
+			System.out.println("O valor por ponto marcado é: " + jogadorBasqueteObjeto.getValorPorPontos());
+			
+			System.out.println("Valor marcado: " + jogadorBasqueteObjeto.calcularPagamento());
 			}
+		
 		
 		if(opcao.equals("F")) {
-			System.out.println("Qual o nome do Jogador: ");
-			jogadorFutsalObjeto.nomeAtleta = entradaDados.next();
+			System.out.println("Digite o nome do Jogador: ");
+			jogadorFutsalObjeto.setNomeAtleta(entradaDados.next()); 
 			
-			System.out.println("Qual a idade do Jogador: ");
-			jogadorFutsalObjeto.idade = entradaDados.nextInt();
+			System.out.println("Digite a idade do Jogador: ");
+			jogadorFutsalObjeto.setIdade(entradaDados.nextInt());
 			
-			System.out.println("Qual o perna mais forte do Jogador: ");
-			jogadorFutsalObjeto.PernaMaisForte = entradaDados.next();
+			System.out.println("Digite o perna mais forte do Jogador: ");
+			jogadorFutsalObjeto.setPernaMaisForte(entradaDados.next()); 
 			
-			System.out.println("Qual o valor por pontos do Jogador: ");
-			jogadorFutsalObjeto.ValorPorGols = entradaDados.nextDouble();
+			System.out.println("Digite o valor por pontos do Jogador: ");
+			jogadorFutsalObjeto.setValorPorGols(entradaDados.nextDouble());
+			
+			System.out.println("quantos gols o jogador marcou: ");
+			jogadorFutsalObjeto.setQtdGol(entradaDados.nextInt());
+			
+			System.out.println("O nome do jogador é: " + jogadorFutsalObjeto.getNomeAtleta());
+			
+			System.out.println("A idade do jogador é: " + jogadorFutsalObjeto.getIdade());
+			
+			System.out.println("A perna mais forte do jogador é: " + jogadorFutsalObjeto.getPernaMaisForte());
+			
+			System.out.println("O valor por gol marcado é: " + jogadorFutsalObjeto.getValorPorGols());
+			
+			System.out.println("Valor marcado: " + jogadorFutsalObjeto.calcularPagamento());
 			}
 		
-		System.out.println("#############Fim##################");
+		System.out.println("#############Fim do Código##################");
 	}
 }
+
+ 
