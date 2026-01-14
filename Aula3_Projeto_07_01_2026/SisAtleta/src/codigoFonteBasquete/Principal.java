@@ -1,112 +1,179 @@
 package codigoFonteBasquete;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
+
+import javax.swing.JOptionPane;
 
 public class Principal {
 
 	public static void main(String[] args) {
-
-		Scanner entradaDados = new Scanner(System.in);
-
-		String opcaoNovoCadastro; // criado e iniciado como null
+		String opcaoCadastrarMaisUm; // criado e iniciado como null
 
 		List<JogadorFutsal> jogadorFutsal = new ArrayList<JogadorFutsal>();
 		List<JogadorBasquete> jogadorBasquetes = new ArrayList<JogadorBasquete>();
 
-		System.out.println("Sistema de cadastro de Atleta");
-
+		// Primeira possivel repetição(loop 0 da imagem)
+		// JOptionPane é uma classe do java Swing(pacote de interface gratica nativa do
+		// java)
+		// showInputDialog Ele recebe uma String(via interface grafica) e retorna a
+		// String recebido pelo usuario
+		
 		do {
-			System.out.println("Cadastro de Atleta: ");
-			System.out.println("Digite B para jogador de Basquete ou F para jogador de Futsal");
+			String opcaoCadastroAtleta;
+			
+			boolean letraOuNao;
 
-			String opcao = entradaDados.next();
+			do {
+				opcaoCadastroAtleta = JOptionPane.showInputDialog("Digite B para Jogador(a) de Basquete ou F para Jogador(a) de Futsal: ");
 
-			if (opcao.equals("B")) {
+				letraOuNao = somenteLetras(opcaoCadastroAtleta);
+
+			} while (!letraOuNao);
+
+			
+			if (opcaoCadastroAtleta.equals("B")) {
 				JogadorBasquete jogadorBasqueteObjeto = new JogadorBasquete();
-				System.out.println("Digite o nome do Jogador: ");
-				jogadorBasqueteObjeto.setNomeAtleta(entradaDados.next());
 
-				System.out.println("Digite a idade do Jogador: ");
-				jogadorBasqueteObjeto.setIdade(entradaDados.nextInt());
+				/* NOME DO ATLETA */
+				do {
+					String nome = JOptionPane.showInputDialog("Qual o nome do Jogador(a) de Basquete: ");
 
-				System.out.println("Digite o braço mais forte do Jogador: ");
-				jogadorBasqueteObjeto.setBracoMaisForte(entradaDados.next());
+					letraOuNao = somenteLetras(nome);
 
-				System.out.println("Digite o valor por pontos do Jogador: ");
-				jogadorBasqueteObjeto.setValorPorPontos(entradaDados.nextDouble());
+					if (letraOuNao) {
+						jogadorBasqueteObjeto.setNomeAtleta(nome);
+					}
 
-				System.out.println("Quantos pontos o jogador marcou: ");
-				jogadorBasqueteObjeto.setQtdPts(entradaDados.nextInt());
+				} while (!letraOuNao);
 
+				
+				/* IDADE DO ATLETA */
+				int idadeTemporaria;
+				do {
+					idadeTemporaria = validaInteiroERetornaInt(
+							JOptionPane.showInputDialog("Digite a idade do Jogador: "));
+					if (idadeTemporaria != 0) {
+						jogadorBasqueteObjeto.setIdade(idadeTemporaria);
+					}
+				} while (idadeTemporaria == 0);
+
+				
+				/* BRAÇO MAIS FORTE */
+
+				do {
+					String bracoMaisForte = JOptionPane.showInputDialog("Digite o braço mais forte do Jogador: ");
+
+					letraOuNao = somenteLetras(bracoMaisForte);
+
+					if (letraOuNao) {
+						jogadorBasqueteObjeto.setBracoMaisForte(bracoMaisForte);
+					}
+
+				} while (!letraOuNao);
+
+				/* VALOR POR PONTOS */
+				double valorPorPorPontosTemp;
+				do {
+					valorPorPorPontosTemp = validaDoubleERetornaDouble(
+							JOptionPane.showInputDialog("Digite o valor por ponto marcado $: "));
+					if (valorPorPorPontosTemp != 0.0) {
+						jogadorBasqueteObjeto.setValorPorPontos(valorPorPorPontosTemp);
+					}
+				} while (valorPorPorPontosTemp == 0.0);
+
+				/* QUANTIDADE PONTOS */
+				int qtdPontoTemporaria;
+				do {
+					qtdPontoTemporaria = validaInteiroERetornaInt(
+							JOptionPane.showInputDialog("Quantos pontos o jogador marcou "));
+					if (qtdPontoTemporaria != 0) {
+						jogadorBasqueteObjeto.setQtdPts(qtdPontoTemporaria);
+					}
+				} while (qtdPontoTemporaria == 0);
+
+				/* PAGAMENTO E PATROCINIO */
 				jogadorBasqueteObjeto.setSalario(jogadorBasqueteObjeto.calcularPagamento());
 				jogadorBasqueteObjeto.setPatrocinio(jogadorBasqueteObjeto.calcularPatrocinio());
 
 				jogadorBasquetes.add(jogadorBasqueteObjeto);
-
-				/*
-				 * System.out.println("O nome do jogador é: " +
-				 * jogadorBasqueteObjeto.getNomeAtleta());
-				 * 
-				 * System.out.println("A idade do jogador é: " +
-				 * jogadorBasqueteObjeto.getIdade());
-				 * 
-				 * System.out.println("A braço mais forte do jogador é: " +
-				 * jogadorBasqueteObjeto.getBracoMaisForte());
-				 * 
-				 * System.out.println("O valor por ponto marcado é: " +
-				 * jogadorBasqueteObjeto.getValorPorPontos());
-				 * 
-				 * System.out.println("Valor marcado: " +
-				 * jogadorBasqueteObjeto.calcularPagamento());
-				 */
 			}
 
-			if (opcao.equals("F")) {
+			if (opcaoCadastroAtleta.equals("F")) { 
 				JogadorFutsal jogadorFutsalObjeto = new JogadorFutsal();
-				System.out.println("Digite o nome do Jogador: ");
-				jogadorFutsalObjeto.setNomeAtleta(entradaDados.next());
 
-				System.out.println("Digite a idade do Jogador: ");
-				jogadorFutsalObjeto.setIdade(entradaDados.nextInt());
+				/* NOME JOGADOR */
+				do {
 
-				System.out.println("Digite o perna mais forte do Jogador: ");
-				jogadorFutsalObjeto.setPernaMaisForte(entradaDados.next());
+					String nome = JOptionPane.showInputDialog("Qual o nome do Jogador(a) de Futebol: ");
 
-				System.out.println("Digite o valor por pontos do Jogador: ");
-				jogadorFutsalObjeto.setValorPorGols(entradaDados.nextDouble());
+					letraOuNao = somenteLetras(nome);
 
-				System.out.println("Quantos gols o jogador marcou: ");
-				jogadorFutsalObjeto.setQtdGol(entradaDados.nextInt());
+					if (letraOuNao) {
+						jogadorFutsalObjeto.setNomeAtleta(nome);
+					}
 
+				} while (!letraOuNao);
+
+				
+				/* IDADE JOGADOR */
+				int idadeTemporaria; // variavel para receber o resultado do metodo
+				do {
+					idadeTemporaria = validaInteiroERetornaInt(JOptionPane.showInputDialog("Digite a idade do Jogador: "));
+					if (idadeTemporaria != 0) {
+						jogadorFutsalObjeto.setIdade(idadeTemporaria);
+					}
+				} while (idadeTemporaria == 0);
+
+				
+				/* PERNA MAIS FORTE */
+				do {
+					String pernaMaisForte = JOptionPane.showInputDialog("Digite o perna mais forte do Jogador: ");
+
+					letraOuNao = somenteLetras(pernaMaisForte);
+
+					if (letraOuNao) {
+						jogadorFutsalObjeto.setPernaMaisForte(pernaMaisForte);
+					}
+
+				} while (!letraOuNao);
+				
+			
+				/* VALOR POR GOL */
+				double valorPorGolTemp;
+				do {
+					valorPorGolTemp = validaDoubleERetornaDouble(
+							JOptionPane.showInputDialog("Digite o valor por gol marcado $: "));
+					if (valorPorGolTemp != 0.0) {
+						jogadorFutsalObjeto.setValorPorGols(valorPorGolTemp);
+					}
+
+				} while (valorPorGolTemp == 0.0);
+
+				/* QUANDTIDADE DE GOL */
+				int qtdGolTemporaria;
+				do {
+					qtdGolTemporaria = validaInteiroERetornaInt(JOptionPane.showInputDialog("Quantos gols o jogador marcou: "));
+					
+					if (qtdGolTemporaria != 0) {
+						jogadorFutsalObjeto.setQtdGol(qtdGolTemporaria);
+					}
+					
+				} while (qtdGolTemporaria == 0);
+
+				
+				/* PAGAMENTE E PATROCIONIO */
 				jogadorFutsalObjeto.setSalario(jogadorFutsalObjeto.calcularPagamento());
 				jogadorFutsalObjeto.setPatrocinio(jogadorFutsalObjeto.calcularPatrocinio());
 
 				jogadorFutsal.add(jogadorFutsalObjeto);
-
-				/*
-				 * System.out.println("O nome do jogador é: " +
-				 * jogadorFutsalObjeto.getNomeAtleta());
-				 * 
-				 * System.out.println("A idade do jogador é: " +
-				 * jogadorFutsalObjeto.getIdade());
-				 * 
-				 * System.out.println("A perna mais forte do jogador é: " +
-				 * jogadorFutsalObjeto.getPernaMaisForte());
-				 * 
-				 * System.out.println("O valor por gol marcado é: " +
-				 * jogadorFutsalObjeto.getValorPorGols());
-				 * 
-				 * System.out.println("Valor marcado: " +
-				 * jogadorFutsalObjeto.calcularPagamento());
-				 */
 			}
 
-			System.out.println("Deseja Cadastra mais um (S/N");
-			opcaoNovoCadastro = entradaDados.next();
+			opcaoCadastrarMaisUm = JOptionPane.showInputDialog("Deseja Cadastra mais um (S/N");
 
-		} while (opcaoNovoCadastro.equals("S"));
+		} while (opcaoCadastrarMaisUm.equals("S"));
 
 		System.out.println("############Lista de jogadores de Futsal cadastrados############");
 
@@ -138,4 +205,74 @@ public class Principal {
 
 		System.out.println("#######Encerrado#######");
 	}
+
+	// Recebe a string valida e retorna o numero inteiro.
+	public static int validaInteiroERetornaInt(String numeroString) {
+		int numeroInteiro = 0;
+
+		if (numeroString == null || numeroString.isBlank()) {
+			JOptionPane.showMessageDialog(null, "Valor inválido");
+		} else {
+			try {
+				numeroInteiro = Integer.parseInt(numeroString);
+
+				// so vai cair o Catch se não conseguir converter o numeroString em inteiro.
+			} catch (Exception e) {
+
+				JOptionPane.showMessageDialog(null, "Apenas numeros."); // comunica para o usuario
+				System.out.println("O valor: " + e.getMessage() + "Não pode ser convertido para inteiro"); // dev
+			}
+		}
+		return numeroInteiro;
+	}
+
+	/* VALIDA OPCOES */
+	public static Double validaDoubleERetornaDouble(String numeroString) {
+		Double numeroDecimal = 0.0;
+
+		if (numeroString == null || numeroString.isBlank()) {
+			JOptionPane.showMessageDialog(null, "Valor inválido");
+		} else {
+			try {
+				numeroDecimal = Double.parseDouble(numeroString);
+
+			} catch (Exception e) {
+				JOptionPane.showMessageDialog(null, "Apenas numeros."); // comunica para o usuario
+				System.out.println("O valor: " + e.getMessage() + "Não pode ser convertido para inteiro");
+			}
+		}
+		return numeroDecimal;
+	}
+
+	// Esse metodo retorna verdadeiro se a String tiver apenas letras
+	public static boolean somenteLetras(String texto) {
+			
+			if(texto == null || texto.isBlank()) {
+				JOptionPane.showMessageDialog(null,"Inválido!");
+				return false;
+			}
+			//for(tradicional)
+			//texto.length() -> Conta quantos caracteres tem na String
+			//int indice = 0 -> Indica que o indice começa na posição 0
+			//indice++ -> Vai incrementar mais uma posição no valor de indice
+			// Character.isLetter Retorna verdadeiro se o Char for uma letra e falso se não for
+			//charAt recebe um inteiro e retona o Char de acordo com a posição enviada.
+			//! -> O is isLetter retorna verdadeiro, ele inverte a logica do IF para que o metodo não retorne falso
+			
+			int qtdCaracterString = texto.length();
+			
+			for(int indice = 0; indice < qtdCaracterString; indice++) {
+				
+				char caracterAtual = texto.charAt(indice);
+				
+				if(!Character.isLetter(caracterAtual)) {
+					JOptionPane.showMessageDialog(null, "Somente Letras;");
+					return false;
+					
+				}
+				
+			}
+			return true;
+	}
 }
+
