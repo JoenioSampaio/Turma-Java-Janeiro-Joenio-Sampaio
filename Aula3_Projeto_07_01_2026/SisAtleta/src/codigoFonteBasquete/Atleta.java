@@ -5,12 +5,18 @@ public abstract class Atleta {
 	private int idade;
 	private Double patrocinio;
 	private Double salario;
+	private long identificador; // Long e usando para armazenar numeros grandes.
 
 	// Assinatura
 	protected abstract Double calcularPagamento();
-
 	protected abstract Double calcularPatrocinio();
 
+	//construtor
+	public Atleta(long identificador) {
+		this.identificador = identificador;
+	}
+	
+	
 	// Ainda é herança
 	public void verificarNumeroNegativo(Double valor) {
 		if (valor < 0) {
@@ -51,5 +57,10 @@ public abstract class Atleta {
 	public void setSalario(Double salario) {
 		this.salario = salario;
 	}
+	
+	public long getIdentificador() {
+		return identificador;
+	}
+		
 
 }

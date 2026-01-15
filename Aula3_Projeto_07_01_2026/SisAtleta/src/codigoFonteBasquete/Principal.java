@@ -1,10 +1,8 @@
 package codigoFonteBasquete;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Scanner;
-
+import java.util.concurrent.ThreadLocalRandom;
 import javax.swing.JOptionPane;
 
 public class Principal {
@@ -40,7 +38,9 @@ public class Principal {
 
 			
 			if (opcaoCadastroAtleta.equalsIgnoreCase("B")) {
-				JogadorBasquete jogadorBasqueteObjeto = new JogadorBasquete();
+				
+				long identificador = ThreadLocalRandom.current().nextLong(0, Long.MAX_VALUE); // Gera um numero aleatorio
+				JogadorBasquete jogadorBasqueteObjeto = new JogadorBasquete(identificador);
 
 				/* NOME DO ATLETA */
 				do {
@@ -107,7 +107,9 @@ public class Principal {
 			}
 
 			if (opcaoCadastroAtleta.equalsIgnoreCase("F")) { 
-				JogadorFutsal jogadorFutsalObjeto = new JogadorFutsal();
+				
+				long identificador = ThreadLocalRandom.current().nextLong(0, Long.MAX_VALUE); // Gera um numero aleatorio
+				JogadorFutsal jogadorFutsalObjeto = new JogadorFutsal(identificador);
 
 				/* NOME JOGADOR */
 				do {
@@ -186,6 +188,11 @@ public class Principal {
 		mensagem.append("############Lista de jogadores de Futsal cadastrados############\n");
 		
 		for(JogadorFutsal jogadorFutsalLista : jogadorFutsal) {
+			
+			mensagem.append("Identificador:")
+			.append(jogadorFutsalLista.getIdentificador())
+			.append("\n");
+			
 			mensagem.append("nome:")
 			.append(jogadorFutsalLista.getNomeAtleta())
 			.append("\n");
@@ -217,6 +224,11 @@ public class Principal {
 			mensagem.append("------------------\n");
 			
 			for (JogadorBasquete jogadorBasqueteLista : jogadorBasquetes) {
+				
+				mensagem.append("Identificador:")
+				.append(jogadorBasqueteLista.getIdentificador())
+				.append("\n");
+				
 				mensagem.append("nome:")
 				.append(jogadorBasqueteLista.getNomeAtleta())
 				.append("\n");
@@ -247,11 +259,9 @@ public class Principal {
 				
 				mensagem.append("------------------\n");
 			}
-			
 		}
-		JOptionPane.showInputDialog(null, mensagem.toString(), "Lista de atletas", JOptionPane.INFORMATION_MESSAGE);
 		
-
+		JOptionPane.showInputDialog(null, mensagem.toString(), "Lista de atletas", JOptionPane.INFORMATION_MESSAGE);
 		System.out.println("#######Encerrado#######");
 	}
 
@@ -317,9 +327,7 @@ public class Principal {
 				if(!Character.isLetter(caracterAtual)) {
 					JOptionPane.showMessageDialog(null, "Somente Letras;");
 					return false;
-					
 				}
-				
 			}
 			return true;
 	}

@@ -4,6 +4,11 @@ public class JogadorBasquete extends Atleta {
 	private String BracoMaisForte;
 	private Double valorPorPontos;
 	private int qtdPts;
+	
+	
+	public JogadorBasquete(long identificadorConstrutor) {
+		super(identificadorConstrutor);
+	}
 
 	public String getBracoMaisForte() {
 		return BracoMaisForte;

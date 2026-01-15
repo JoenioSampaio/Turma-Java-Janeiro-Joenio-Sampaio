@@ -4,6 +4,13 @@ public class JogadorFutsal extends Atleta {
 	private String PernaMaisForte;
 	private Double valorPorGols;
 	private int qtdGol;
+	
+	
+	public JogadorFutsal(long identificadorConstrutor) {
+		super(identificadorConstrutor);
+	}
+	
+	
 
 	public String getPernaMaisForte() {
 		return PernaMaisForte;
