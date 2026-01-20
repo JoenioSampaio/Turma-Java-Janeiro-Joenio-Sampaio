@@ -1,0 +1,3 @@
+O nome do Supervisor é: joenio
+O CPF do Supervisor é: 38384756821
+O E-mail do Supervisor é: joenio.sampaio@gmail.com
