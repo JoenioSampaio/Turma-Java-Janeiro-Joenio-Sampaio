@@ -12,36 +12,29 @@ public class TelaDetalharSupervisor {
 
 	
 	
-	public void detalharGerente(Supervisor gerente) {
+	public void detalharGerente(Supervisor supervisor) {
 		
 		GridLayout grid = new GridLayout(0,2);
 		
-		JFrame frameTelaGerente = new JFrame("Detalhes do Gerente");
-		frameTelaGerente.setSize(300,180);
+		JFrame frameTelaSupervisor = new JFrame("Detalhes do Gerente");
+		frameTelaSupervisor.setSize(300,180);
 		
-		JPanel panelTelaGerente = new JPanel();
-		panelTelaGerente.setLayout(grid);
+		JPanel panelTelaSupervisor = new JPanel();
+		panelTelaSupervisor.setLayout(grid);
 		
-		panelTelaGerente.add(new JLabel("CPF:"));
-		panelTelaGerente.add(new JLabel(gerente.getCpf()));
-		
-		
-		panelTelaGerente.add(new JLabel("NOME:"));
-		panelTelaGerente.add(new JLabel(gerente.getNome()));
-		
-		panelTelaGerente.add(new JLabel("GERENCIA:"));
-		panelTelaGerente.add(new JLabel(gerente.getSupervisor()));
-		
-		frameTelaGerente.add(panelTelaGerente);
-		frameTelaGerente.setVisible(true);
+		panelTelaSupervisor.add(new JLabel("CPF:"));
+		panelTelaSupervisor.add(new JLabel(supervisor.getCpf()));
 		
 		
+		panelTelaSupervisor.add(new JLabel("NOME:"));
+		panelTelaSupervisor.add(new JLabel(supervisor.getNome()));
 		
+		panelTelaSupervisor.add(new JLabel("EMAIL:"));
+		panelTelaSupervisor.add(new JLabel(supervisor.getSupervisor()));
 		
-		
-		
-		
+		frameTelaSupervisor.add(panelTelaSupervisor);
+		frameTelaSupervisor.setLocationRelativeTo(null);
+		frameTelaSupervisor.setVisible(true);
+			
 	}
-	
-	
 }

@@ -10,7 +10,7 @@ import javax.swing.JTextField;
 import entidade.Supervisor;
 import interfaceGrafica.TelaListarSupervisor;
 import repositorio.RepositorioSupervisorImplementacao;
-import validacao.SupervisorValidacao;
+import validacao.Validacao;
 
 
 
@@ -44,10 +44,10 @@ public class ControladorTelaCadastroSupervisor implements ActionListener {
 				Supervisor supervisor = new Supervisor();
 				supervisor.setNome(nome.getText());
 				supervisor.setCpf(cpf.getText());
-				supervisor.setEmail(null);
+				supervisor.setEmail(email.getText());
 				
 				//Pensar em refatorar mais pra frente
-				String resultadoValidacao = SupervisorValidacao.validaSupervisor(supervisor);
+				String resultadoValidacao = Validacao.validaSupervisor(supervisor);
 				
 				if(resultadoValidacao == null) {
 					if (repositorioSupervisorImplementacao.salvarSupervisor(supervisor)) {

@@ -9,19 +9,19 @@ import entidade.Supervisor;
 
 public class ManipuladorArquivo {
 
-	public boolean registrarGerente(Supervisor supervisor) {
+	public boolean registrarSupervisor(Supervisor supervisor) {
 
-		String enderecoArquivo = "C:\\Users\\luciano.pontes\\Desktop\\JavaProgrammer\\Turma-Java-Janeiro\\sisFuncionario\\registroGerente.txt";
+		String enderecoArquivo = "C:\\Users\\Windows\\Desktop\\Meus Projetos Impacta\\Turma-Java-Janeiro-Joenio-Sampaio\\sisFuncionario\\Cadastro gerado";
 
 		try {
 
 			BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(enderecoArquivo));
 
-			bufferedWriter.append("O nome do gerente é: " + supervisor.getNome());
+			bufferedWriter.append("O nome do supervisor é: " + supervisor.getNome());
 			bufferedWriter.newLine();
-			bufferedWriter.append("O cpf do gerente é:" + supervisor.getCpf());
+			bufferedWriter.append("O cpf do supervisor é:" + supervisor.getCpf());
 			bufferedWriter.newLine();
-			bufferedWriter.append("O Email do Supervisor é: " + supervisor.getEmail());
+			bufferedWriter.append("O Email do supervisor é: " + supervisor.getEmail());
 
 			bufferedWriter.close();
 
@@ -34,9 +34,9 @@ public class ManipuladorArquivo {
 
 	}
 
-	public boolean registrarAtendente(Assistente assistente) {
+	public boolean registrarAssistente(Assistente assistente) {
 
-		String enderecoArquivo = "C:\\\\Users\\\\luciano.pontes\\\\Desktop\\\\JavaProgrammer\\\\Turma-Java-Janeiro\\\\sisFuncionario\\\\registroGerente.txt";
+		String enderecoArquivo = "C:\\Users\\Windows\\Desktop\\Meus Projetos Impacta\\Turma-Java-Janeiro-Joenio-Sampaio\\sisFuncionario\\Cadastro gerado";
 
 		try {
 

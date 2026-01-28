@@ -36,5 +36,4 @@ public void detalharAssistente(Assistente assistente) {
 		frameTelaAssistente.setVisible(true);
 		
 	}
-
 }

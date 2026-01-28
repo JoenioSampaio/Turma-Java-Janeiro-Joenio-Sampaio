@@ -16,7 +16,7 @@ import entidade.Assistente;
 public class TelaListarAssistente {
 
 	// O metodo é void porque não retorna nenhum valor, ou seja não tem return
-	public void listarAtendente(List<Assistente> listaAssistente) {
+	public void listarAssistente(List<Assistente> listaAssistente) {
 		
 		int quantidadeLinhas = listaAssistente.size();
 		
@@ -32,7 +32,7 @@ public class TelaListarAssistente {
 			posicaoColuna ++;
 			tabelaString[posicaoLinha][posicaoColuna] = assistente.getNome();
 			posicaoColuna++;
-			tabelaString[posicaoLinha][posicaoColuna] = assistente.getSetor();
+			tabelaString[posicaoLinha][posicaoColuna] = assistente.getEmail();
 			
 			posicaoColuna = 0;
 			posicaoLinha ++;
@@ -41,7 +41,7 @@ public class TelaListarAssistente {
 		String [] nomeColunas = {"CPF", "NOME", "EMAIL"};
 		
 		JFrame frameListarAssistente = new JFrame();
-		frameListarAssistente.setSize(475, 450);
+		frameListarAssistente.setSize(550, 500);
 		JPanel panelListarAssistente = new JPanel();
 		
 		JTable tabelaAssistente = new JTable(tabelaString, nomeColunas);
@@ -59,6 +59,14 @@ public class TelaListarAssistente {
 		JButton botaoDetalhar = new JButton("Detalhar");
 		panelListarAssistente.add(botaoDetalhar);
 		
+		JButton botaoAlterar = new JButton("Alterar");
+		panelListarAssistente.add(botaoAlterar);
+		
+		JButton botaoDeletar = new JButton("Deletar");
+		panelListarAssistente.add(botaoDeletar);
+		
+		JButton botaoVoltar = new JButton("Voltar");
+		panelListarAssistente.add(botaoVoltar);
 		
 		panelListarAssistente.add(scrollPaneListarAssistente);
 		
@@ -66,7 +74,10 @@ public class TelaListarAssistente {
 		frameListarAssistente.setLocationRelativeTo(null);
 		frameListarAssistente.setVisible(true);
 		
-		ControladorTelaListarAssistente controladorTelaListarAssistente = new ControladorTelaListarAssistente(textCpf, listaAssistente);
+		ControladorTelaListarAssistente controladorTelaListarAssistente = new ControladorTelaListarAssistente(textCpf, listaAssistente, frameListarAssistente);
 		botaoDetalhar.addActionListener(controladorTelaListarAssistente);
+		botaoAlterar.addActionListener(controladorTelaListarAssistente);
+		botaoDeletar.addActionListener(controladorTelaListarAssistente);
+		botaoVoltar.addActionListener(controladorTelaListarAssistente);
 	}
 }

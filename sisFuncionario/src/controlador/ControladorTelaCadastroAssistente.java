@@ -9,6 +9,7 @@ import javax.swing.JTextField;
 import entidade.Assistente;
 import interfaceGrafica.TelaListarAssistente;
 import repositorio.RepositorioAssistenteImplementacao;
+import validacao.Validacao;
 
 public class ControladorTelaCadastroAssistente implements ActionListener {
 
@@ -42,17 +43,24 @@ public class ControladorTelaCadastroAssistente implements ActionListener {
 				assistente.setNome(nome.getText());
 				assistente.setCpf(cpf.getText());
 				assistente.setEmail(email.getText());
-	
-				if (repositorioAssistenteImplementacao.salvarAssistente(assistente)) {
-	
-					JOptionPane.showMessageDialog(null, "Foi salvo com sucesso!!");
-	
-					nome.setText(null);
-					cpf.setText(null);
-					email.setText(null);
-	
-				} else {
-					JOptionPane.showMessageDialog(null, "Não foi salvo com sucesso!!!!!");
+				
+				String resultadoValidacao = Validacao.validaAssistente(assistente);
+				
+				if (resultadoValidacao == null) {
+					if (repositorioAssistenteImplementacao.salvarAssistente(assistente)) {
+						
+						JOptionPane.showMessageDialog(null, "Foi salvo com sucesso!!");
+		
+						nome.setText(null);
+						cpf.setText(null);
+						email.setText(null);
+		
+					} else {
+						JOptionPane.showMessageDialog(null, "Não foi salvo com sucesso!!!!!");
+					}
+					
+				}else {
+					JOptionPane.showMessageDialog(null, resultadoValidacao);
 				}
 				break;
 	
@@ -63,7 +71,8 @@ public class ControladorTelaCadastroAssistente implements ActionListener {
 					break;
 				}
 				case "Listar": {
-					telaListarAssistente.listarAtendente(repositorioAssistenteImplementacao.listarAssistente());
+					frameCadastroAssistente.setVisible(false);
+					telaListarAssistente.listarAssistente(repositorioAssistenteImplementacao.listarAssistente());
 					break;
 				}
 		}
