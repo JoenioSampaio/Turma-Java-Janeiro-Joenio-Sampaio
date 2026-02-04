@@ -1,7 +1,7 @@
 package model;
 
-public class Assistente extends Pessoa {
-
+public class Atendente extends Pessoa {
+	
 	private String setor;
 
 	public String getSetor() {
@@ -11,5 +11,6 @@ public class Assistente extends Pessoa {
 	public void setSetor(String setor) {
 		this.setor = setor;
 	}
+
 
 }
