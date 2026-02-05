@@ -11,6 +11,4 @@ public class Gerente extends Pessoa {
 	public void setGerencia(String gerencia) {
 		this.gerencia = gerencia;
 	}
-	
-	
 }

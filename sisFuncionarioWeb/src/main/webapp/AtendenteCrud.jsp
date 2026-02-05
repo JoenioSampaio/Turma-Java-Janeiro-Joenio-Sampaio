@@ -5,7 +5,7 @@
     
     
 <%@ page import="java.util.List" %>
-<%@ page import="model.Atendente" %>    
+<%@ page import="teste.Atendente" %>    
     
 <!DOCTYPE html>
 <html>

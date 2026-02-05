@@ -5,8 +5,6 @@ import java.util.List;
 import dao.DaoAtendente;
 import model.Atendente;
 
-
-
 public class RepositorioAtendenteImplementacao implements RepositorioAtendente {
 	
 	@Override
