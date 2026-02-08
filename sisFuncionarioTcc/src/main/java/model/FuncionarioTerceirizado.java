@@ -1,6 +1,6 @@
 package model;
 
-public class FuncionarioTerceirizado {
+public class FuncionarioTerceirizado extends FuncionarioInterno{
 	private String funcao;
 	private String empresa;
 	

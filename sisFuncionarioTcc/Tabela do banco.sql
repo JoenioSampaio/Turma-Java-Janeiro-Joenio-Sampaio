@@ -8,7 +8,17 @@ salario VARCHAR (100) NOT NULL,
 PRIMARY KEY (cpf)
 );
 
+create table funcionarioTerceirizado(
+cpf CHAR (11) NOT NULL,
+nome VARCHAR (100) NOT NULL,
+dataNascimento  CHAR(15) NOT NULL,
+funcao VARCHAR (100) NOT NULL,
+empresa CHAR (11) NOT NULL,
+PRIMARY KEY (cpf)
+);
+
 select * from funcionarioInterno;
+select * from funcionarioTerceirizado;
 
 insert into funcionarioInterno (cpf, nome, dataNascimento, cargo, matricula, salario) values ('031', 'Joenio', '11/10/1992', 'Gerente', '001', '1000'); -- inserir dados
 
