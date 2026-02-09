@@ -23,25 +23,27 @@ public class FuncionarioTerceirizadoController extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		FuncionarioTerceirizado funcionarioTerceirizado = new FuncionarioTerceirizado();
 		
-		funcionarioTerceirizado.setCpf("cpf");
-		funcionarioTerceirizado.setNome("nome");
-		funcionarioTerceirizado.setDataNascimento("11/10/1992");
-		funcionarioTerceirizado.setFuncao("Auxiliar");
-		funcionarioTerceirizado.setEmpresa("teste");
-		funcionarioTerceirizado.setSalario("1000");
-		
-		
-		RepositorioFuncionarioTerceirizadoImplementacao repositorioFuncionarioTerceirizadoImplementacao = new RepositorioFuncionarioTerceirizadoImplementacao();
-		
-		repositorioFuncionarioTerceirizadoImplementacao.salvarFuncionarioTerceirizado(funcionarioTerceirizado);
 	}
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		doGet(request, response);
+		
+		FuncionarioTerceirizado funcionarioTerceirizado = new FuncionarioTerceirizado();
+		
+		funcionarioTerceirizado.setCpf(request.getParameter("cpf"));
+		funcionarioTerceirizado.setNome(request.getParameter("nome"));
+		funcionarioTerceirizado.setDataNascimento(request.getParameter("dataNascimento"));
+		funcionarioTerceirizado.setFuncao(request.getParameter("funcao"));
+		funcionarioTerceirizado.setEmpresa(request.getParameter("empresa"));
+	
+		
+		
+		RepositorioFuncionarioTerceirizadoImplementacao repositorioFuncionarioTerceirizadoImplementacao = new RepositorioFuncionarioTerceirizadoImplementacao();
+		
+		repositorioFuncionarioTerceirizadoImplementacao.salvarFuncionarioTerceirizado(funcionarioTerceirizado);
 	}
 
 }

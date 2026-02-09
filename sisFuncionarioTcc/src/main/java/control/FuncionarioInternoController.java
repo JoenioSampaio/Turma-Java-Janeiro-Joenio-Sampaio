@@ -24,25 +24,27 @@ public class FuncionarioInternoController extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		FuncionarioInterno funcionarioInterno = new FuncionarioInterno();
 		
-		funcionarioInterno.setCpf("00000000000");
-		funcionarioInterno.setNome("Joenio");
-		funcionarioInterno.setDataNascimento("11/10/1992");
-		funcionarioInterno.setMatricula("001");
-		funcionarioInterno.setCargo("Gerente");
-		funcionarioInterno.setSalario("1000");
-		
-		
-		RepositorioFuncionarioInternoImplementacao repositorioFuncionarioInternoImplementacao = new RepositorioFuncionarioInternoImplementacao();
-		
-		repositorioFuncionarioInternoImplementacao.salvarFuncionarioInterno(funcionarioInterno);
 	}
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		doGet(request, response);
+		
+		FuncionarioInterno funcionarioInterno = new FuncionarioInterno();
+		
+		funcionarioInterno.setCpf(request.getParameter("cpf"));
+		funcionarioInterno.setNome(request.getParameter("nome"));
+		funcionarioInterno.setDataNascimento(request.getParameter("dataNascimento"));
+		funcionarioInterno.setMatricula(request.getParameter("matricula"));
+		funcionarioInterno.setCargo(request.getParameter("cargo"));
+		funcionarioInterno.setSalario(request.getParameter("salario"));
+		
+		
+		RepositorioFuncionarioInternoImplementacao repositorioFuncionarioInternoImplementacao = new RepositorioFuncionarioInternoImplementacao();
+		
+		repositorioFuncionarioInternoImplementacao.salvarFuncionarioInterno(funcionarioInterno);
 	}
 
 }

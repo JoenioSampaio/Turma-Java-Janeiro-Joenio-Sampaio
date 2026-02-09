@@ -10,11 +10,12 @@
 	<h2>Funcionario Interno</h2>
 	
 	<form method="post" action="<%= request.getContextPath() %>/FuncionarioInterno">
+	
 	<label>DIGITE O CPF</label>
 	<input type="text" name="cpf" required>
 	<br></br>
 	<label>DIGITE O NOME</label>
-	<input type="text" name="NOME" required>
+	<input type="text" name="nome" required>
 	<br></br>
 	<label>DIGITE A DATA NASCIMENTO</label>
 	<input type="text" name="dataNascimento" required>

@@ -1,12 +1,8 @@
 package repository;
 
 import java.util.List;
-
-import dao.DaoFuncionarioInterno;
 import dao.DaoFuncionarioTerceirizado;
-import model.FuncionarioInterno;
 import model.FuncionarioTerceirizado;
-
 public class RepositorioFuncionarioTerceirizadoImplementacao implements RepositorioFuncionarioTerceirizado {
 
 	@Override
